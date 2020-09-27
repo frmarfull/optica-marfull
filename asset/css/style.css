@@ -12,6 +12,10 @@
     margin: 0 auto;
 }
 
+#catalogo, #consultar, #solicitar, #modificar, #cancelar{
+	display: none;
+}
+
 .wood {
     color: white;
     background: url(https://images.pexels.com/photos/347139/pexels-photo-347139.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Librerías externas -->
-    <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display'>
 
@@ -19,24 +19,24 @@
     <main>
 
         <!-- Barra de navegación -->
-        <header>
+        <header id="headerprincipal">
             <nav class="nav-wrapper grey darken-4">
                 <div class="container">
-                    <a href="#">
+                    <a onclick="mostrar()" class="hoverable">
                         <img class="logo" src="https://icon-library.com/images/glasses-icon/glasses-icon-14.jpg">
                     </a>
-                    <a href="#" class="brand-logo">Óptica-Marfull</a>
+                    <a onclick="mostrar()" class="brand-logo hoverable">Óptica-Marfull.cl</a>
                     <ul class="right">
                         <!-- Gatillador del efecto "Dropdown". -->
                         <a class='dropdown-trigger btn light-blue darken-4' data-target='dropdown1'>Sobre los despachos</a>
                         <!-- Cada uno de los sub-menús con las opciones de despacho. -->
                         <ul id='dropdown1' class="dropdown-content">
-                            <li><a class="black-text" href="#photos">Consultar despacho</a></li>
-                            <li><a class="black-text" href="#services">Solicitar despacho</a></li>
-                            <li><a class="black-text" href="#services">Modificar datos de despacho</a></li>
-                            <li><a class="black-text" href="#contact">Cancelar mi despacho</a></li>
+                            <li><a class="black-text" onclick='ver("consultar")'>Consultar despacho</a></li>
+                            <li><a class="black-text" onclick='ver("solicitar")'>Solicitar despacho</a></li>
+                            <li><a class="black-text" onclick="ocultar()">Modificar datos de despacho</a></li>
+                            <li><a class="black-text" onclick="ocultar()">Cancelar mi despacho</a></li>
                         </ul>
-                        <a class="tooltipped btn light-blue darken-4 white-text" href="#mapa" data-position="bottom" data-tooltip="¡Encuéntranos!">
+                        <a class="tooltipped btn light-blue darken-4 white-text" href="https://www.google.com/maps/d/edit?mid=1tIuu_DE0SZ5D9vtdBQfyac6hM3p4S407&usp=sharing" data-position="bottom" data-tooltip="¡Encuéntranos!">
                             <i class="material-icons">location_on</i></a>
                         <a class="tooltipped btn-floating pulse blue darken-1" href="tel:56978129471" data-position="bottom" data-tooltip="Call Center: +56 9 7812 9471">
                             <i class="material-icons">local_phone</i></a>
@@ -45,48 +45,151 @@
             </nav>
         </header>
 
+        <!-- Catálogo -->
+        <section class="container section" id="catalogo">
+		  <h1 class="center">Catálogo.</h1>
+          <div>
+			 <div class="row">
+				<div class="col s12 m3">
+				  <div class="card hoverable">
+					<div class="card-image">
+					  <img id="abc1" class="responsive-img materialboxed"src="./asset/img/marco001a_512x512.png">
+					  <span class="card-title">Card Title</span>
+					</div>
+					<div class="card-content">
+					  <p>Marco "Enzzo" Cod: ABC1.</p>
+					</div>
+					<div class="card-action">
+					  <a class="modal-trigger" href="#modal1">Comprar</a>				  
+					  <!-- Modal Structure -->
+					  <div id="modal1" class="modal">
+						<div class="modal-content">
+						  <h4>¡Elemento agregado!</h4>
+						  <p>Su producto fue agregado a la lista de despacho.</p>
+						  <p>Le recomendamos ir al panel de despacho para coordinar la entrega.</p>
+						  <p>Debes buscar la opción <b>¡Solicitar despacho!</b></p>
+						  <br>
+						  <p>Nota: El panel de despacho también permite anular la compra.</p>
+						</div>
+						<div class="modal-footer">
+						  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Continuar vitrineando.</a>
+						</div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+          </div>
+		  </div>
+        </Section>
+        
+        <!-- Consultar -->
+        <section class="container section" id="consultar">
+          <h4>Consulta el estado del despacho.</h4>
+          <div>
+			<form id="formrut">
+				<input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
+				<button class="btn" type="submit">Validar Run y enviar</button>
+			</form>
+          </div>
+          <div>
+			  <table id="tablarut" class="striped hide">
+				<thead>
+				  <tr>
+					  <th>N°</th>
+					  <th>cod</th>
+					  <th>Nombres</th>
+					  <th>teléfono</th>
+					  <th>dirección</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <tr>
+					<td>1</td>
+					<td>abc-1</td>
+					<td>Martin</td>
+					<td>+56 9 8765 4321</td>
+					<td>Alameda #123</td>
+				  </tr>
+				</tbody>
+			  </table>
+          </div>
+        </Section>
+        
+        <!-- Solicitar -->
+        <section class="container section" id="solicitar">
+          <h4>Solicitar despacho.</h4>
+          <div>
+			  <table id="tablarut" class="striped">
+				<thead>
+				  <tr>
+					  <th>N°</th>
+					  <th>cod</th>
+					  <th>Nombres</th>
+					  <th>teléfono</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <tr>
+					<td>1</td>
+					<td>abc-1</td>
+					<td>Alameda #123</td>
+					<td>+56 9 8765 4321</td>
+				  </tr>
+				</tbody>
+			  </table>
+          </div>
+          <div>
+			<form id="formrun">
+				<input type="text" id="run" name="run" required oninput="checkRut(this)" placeholder="Ingrese RUT">
+				<button class="btn" type="submit">Validar RUT y Enviar</button>
+			</form>
+          </div>
+        </Section>
+
         <!-- Fotos / Grilla -->
         <section class="container section" id="descuentos">
             <div class="row wood">
                 <h2 class="container center col s12 glow">¡Dale un vistazo a nuestros descuentos!</h2>
                 <div class="col s6">
                     <div class="carousel">
-                        <a class="carousel-item" href="#one!"><img src="./asset/img/descuento50p.png"></a>
-                        <a class="carousel-item" href="#two!"><img src="./asset/img/descuento60p.png"></a>
-                        <a class="carousel-item" href="#three!"><img src="./asset/img/descuento70p.png"></a>
-                        <a class="carousel-item" href="#four!"><img src="./asset/img/descuento80p.png"></a>
-                        <a class="carousel-item" href="#five!"><img src="./asset/img/descuento90p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento50p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento60p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento70p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento80p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento90p.png"></a>
                     </div>
                 </div>
                 <div class="col s6">
                     <div class="carousel">
-                        <a class="carousel-item" href="#one!"><img src="./asset/img/descuento50p.png"></a>
-                        <a class="carousel-item" href="#two!"><img src="./asset/img/descuento60p.png"></a>
-                        <a class="carousel-item" href="#three!"><img src="./asset/img/descuento70p.png"></a>
-                        <a class="carousel-item" href="#four!"><img src="./asset/img/descuento80p.png"></a>
-                        <a class="carousel-item" href="#five!"><img src="./asset/img/descuento90p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento50p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento60p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento70p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento80p.png"></a>
+                        <a class="carousel-item" onclick="verCatalogo()"><img src="./asset/img/descuento90p.png"></a>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row hoverable">
             <div class="col s12 l4">
                 <img src="./asset/img/lentes-opticos.jpg" alt="" class="responsive-img materialboxed">
             </div>
-            <div class="col s12 l6 offset-l1">
-                <h2 class="indigo-text text-darken-4">Lentes de sol</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col s12 l4 offset-l1 push-l7">
-                <img src="https://image.freepik.com/foto-gratis/grupo-jovenes-tres-elegantes-amigos-posando-calle-hombre-moda-dos-chicas-lindas-vestidas-ropa-casual-verano-modelos-sonrientes-divirtiendose-gafas-sol-mujeres-alegres-chico-susnet_158538-16347.jpg" alt="" class="responsive-img materialboxed">
-            </div>
-            <div class="col s12 l6 offset-l1 pull-l5 right-align">
+            <div class="col s12 l6 offset-l1" onclick="verCatalogo()">
                 <h2 class="indigo-text text-darken-4">Lentes ópticos</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
             </div>
             </div>
-            <div class="row">
+            <div class="row hoverable">
+            <div class="col s12 l4 offset-l1 push-l7">
+                <img src="https://image.freepik.com/foto-gratis/grupo-jovenes-tres-elegantes-amigos-posando-calle-hombre-moda-dos-chicas-lindas-vestidas-ropa-casual-verano-modelos-sonrientes-divirtiendose-gafas-sol-mujeres-alegres-chico-susnet_158538-16347.jpg" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 l6 offset-l1 pull-l5 right-align">
+                <h2 class="indigo-text text-darken-4">Lentes de sol</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+            </div>
+            </div>
+            <div class="row hoverable">
             <div class="col s12 l4">
                 <img src="./asset/img/entrega.jpg" alt="" class="responsive-img materialboxed">
             </div>
@@ -108,5 +211,6 @@
     <!--Google Map-->
     <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
     <script src="./asset/js/script.js"></script>
+    <script src="./asset/js/validar-rut.js"></script>
 </body>
 </html>
