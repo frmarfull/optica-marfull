@@ -61,53 +61,70 @@
 
         <!-- Consultar -->
         <section class="container section" id="consultar">
-          <h4>Consulta el estado del despacho.</h4>
+          <h4>Solicitar despacho</h4>
+          <h6>Elementos a despachar: </h6>
+            <table id="tablarut" class="striped">
+            <thead>
+              <tr>
+                <th>N°</th>
+                <th>Cod Producto</th>
+                <th>Nombre producto</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>1</td>
+              <td>abc-1</td>
+              <td>Marcos Enzzo color café</td>
+              <td>1</td>
+              </tr>
+            </tbody>
+            </table>
           <div>
-			<form id="formrut">
+      <h6><b>Para proceder con el despacho, ingrese su run.</b></h6>
+			<form id="formRutConsultar">
 				<input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
 				<button class="btn" type="submit">Validar RUT y Enviar</button>
 			</form>
           </div>
           <div>
-			  <table id="tablarut" class="striped hide">
-				<thead>
-				  <tr>
-					  <th>N° Orden de Despacho</th>
-					  <th>Cod Producto</th>
-					  <th>Dirección</th>
-					  <th>teléfono</th>
-				  </tr>
-				</thead>
-
-				<tbody>
-				  <tr>
-					<td>1</td>
-					<td>abc-1</td>
-					<td>Alameda #123</td>
-					<td>+56 9 8765 4321</td>
-				  </tr>
-				  <tr>
-					<td>2</td>
-					<td>abc-1</td>
-					<td>Alameda #123</td>
-					<td>+56 9 8765 4321</td>
-				  </tr>
-				  <tr>
-					<td>3</td>
-					<td>abc-1</td>
-					<td>Alameda #123</td>
-					<td>+56 9 8765 4321</td>
-				  </tr>
-				</tbody>
-			  </table>
           </div>
+
+          <form id="formDatosConsultar" class="hide">
+            <div >
+                <span>Ingrese su nombre</span>
+                <input type="text" name="nombre" id="nombre" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su apellido</span>
+                <input class="inputBorder" type="text" name="apellido" id="apellido" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su Region</span>
+                <input class="inputBorder" type="text" name="region" id="region" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su comuna</span>
+                <input class="inputBorder" type="text" name="comuna" id="comuna" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su calle</span>
+                <input class="inputBorder" type="text"  name="calle" id="calle" required>
+            </div>
+            
+            <div class="autocomplete">
+                <span>Ingrese su departamento</span>
+                <input class="inputBorder" type="text" name="departamento" id="departamento">
+            </div>
+            <button type="submit">enviar</button>
+        </form>
+
         </Section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!--Google Map-->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
-    <script src="./asset/js/script.js"></script>
+    <script src="./asset/js/solicitar.js"></script>
     <script src="./asset/js/validar-rut.js"></script>
 </body>
 </html>

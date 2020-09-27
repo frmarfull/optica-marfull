@@ -16,22 +16,18 @@
     var instances = M.Modal.init(elems);
   });
 
-var hidden = false;
+var hidden = false; // Variable para identificar si los elementos están escondidos.
 
-//Función para ocultar o mostrar determinadas secciones.
+//Función para ocultar o mostrar secciones definidas.
 function toggleAll(){
-	//Se buscan las secciones que serán ocultadas.
 	var header = document.getElementById("headerprincipal");
 	var desc = document.getElementById("descuentos");
 	var cli = document.getElementById("clientes");
 	
 	if (hidden){
-	  //Mostrar la imagen principal.
-	  header.style.minHeight = "700px";
-	  //Mostrar descuentos.
-	  desc.style.display = "block";
-	  //Mostrar clientes.
-	  cli.style.display = "block";
+	  header.style.minHeight = "700px"; //Mostrar la imagen principal.
+	  desc.style.display = "block"; //Mostrar descuentos.
+	  cli.style.display = "block"; //Mostrar clientes.
 	  
 	  //ocultar otros elementos recurrentes.
 	  ocultarPorId("catalogo")
@@ -40,16 +36,12 @@ function toggleAll(){
 	  //ocultarPorId("modificar")
 	  //ocultarPorId("cancelar")
 	  
-	  
 	  hidden = false;
 	} 
 	else {
-	  //Ocultar la imagen principal.
-	  header.style.minHeight = "0";
-	  //Ocultar descuentos.
-	  desc.style.display = "none";
-	  //Ocultar clientes.
-	  cli.style.display = "none";
+	  header.style.minHeight = "0"; //Ocultar la imagen principal.
+	  desc.style.display = "none"; //Ocultar descuentos.
+	  cli.style.display = "none"; //Ocultar clientes.
 	  
 	  //ocultar otros elementos recurrentes.
 	  ocultarPorId("catalogo")
@@ -75,9 +67,7 @@ function mostrar(){
 function verPorId(id){
 	var elemento = document.getElementById(id);
 	if (elemento==null) {return "no existe!";}
-	//Ocultar los elementos distractorios.
-	ocultar()
-	
+	ocultar() //Ocultar los elementos distractorios.
 	elemento.style.display = "block";
 }
 
@@ -101,46 +91,27 @@ function getDespachoArray() {
 }
 
 function createTablaRut(listado) {
-  for (i = 0; i < listado.length; i++) {
-  var tablarut = document.getElementById("tablarut");
-  var fila = document.createElement("tr");
-  var celda1 = document.createElement("td");
-  var celda2 = document.createElement("td");
-  var celda3 = document.createElement("td");
-  console.log("Elementos creados.")
-  celda1.innerHTML = i;
-  celda2.innerHTML = listado[i].nombre+" "+listado[i].apellido;
-  celda3.innerHTML = listado[i].calle+", "+listado[i].comuna;
-  fila.appendChild(celda1);
-  fila.appendChild(celda2);
-  fila.appendChild(celda3);
-  tablarut.appendChild(fila);
-  }
+	for (i = 0; i < listado.length; i++) {
+		var tablarut = document.getElementById("tablarut");
+		var fila = document.createElement("tr");
+		var celda1 = document.createElement("td");
+		var celda2 = document.createElement("td");
+		var celda3 = document.createElement("td");
+		console.log("Elementos creados.")
+		celda1.innerHTML = i;
+		celda2.innerHTML = listado[i].nombre+" "+listado[i].apellido;
+		celda3.innerHTML = listado[i].calle+", "+listado[i].comuna;
+		fila.appendChild(celda1);
+		fila.appendChild(celda2);
+		fila.appendChild(celda3);
+		tablarut.appendChild(fila);
+		}
 }
 
 formrut.addEventListener('submit', (e)=>{
     e.preventDefault();
-    //let valuerut=document.querySelector('#rut').value.toLowerCase();
-    //console.log(valuerut);
-    
-    //Ejemplo de cómo quedará implementada la tabla con los datos del cliente
     document.getElementById("tablarut").className = "striped";
-    
     var tablarut = document.getElementById("tablarut");
-    
     listaDespacho = getDespachoArray();
-    createTablaRut(listaDespacho);
-    
+    createTablaRut(listaDespacho);    
 })
-// INTENTO EXITOSO DE MAPA USANDO LA API DE GOOGLE MAPS
-/*
-  function initialize() {
-    var mapProp = {
-        center: new google.maps.LatLng(51.508742, -0.120850),
-        zoom: 5,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-*/
