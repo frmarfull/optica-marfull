@@ -11,8 +11,17 @@
     //Efecto Materialboxed (La imagen se va agrandando).
     var elems = document.querySelectorAll('.materialboxed');
     var instances = M.Materialbox.init(elems);
+    //Modal
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
   });
 
+formrut.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let tablaUI=document.querySelector('#rut').value.toLowerCase();
+    document.getElementById("tablarut").className = "striped";
+    
+    })
 // INTENTO EXITOSO DE MAPA USANDO LA API DE GOOGLE MAPS
 /*
   function initialize() {

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Librerías externas -->
+    <link rel="stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display'>
+
+    <!-- Hoja de Estilo -->
+    <!--<link rel="stylesheet" href="./asset/css/style.css">-->
+    <style>
+		* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+}   
+    </style>
+    <!-- ícono-->
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/98/98076.png" type="image/x-icon">
+    <title>Óptica Marfull</title>
+</head>
+<body>
+    <main>
+
+        <!-- Barra de navegación -->
+        <header>
+            <nav class="nav-wrapper grey darken-4">
+                <div class="container">
+                    <a href="#">
+                        <img class="logo" src="./asset/img/glasses-icon-62px.png">
+                    </a>
+                    <a href="#" class="brand-logo">Óptica-Marfull</a>
+                    <ul class="right">
+                        <!-- Gatillador del efecto "Dropdown". -->
+                        <a class='dropdown-trigger btn light-blue darken-4' data-target='dropdown1'>Sobre los despachos</a>
+                        <!-- Cada uno de los sub-menús con las opciones de despacho. -->
+                        <ul id='dropdown1' class="dropdown-content">
+                            <li><a class="black-text" href="#photos">Consultar despacho</a></li>
+                            <li><a class="black-text" href="#services">Solicitar despacho</a></li>
+                            <li><a class="black-text" href="#services">Modificar datos de despacho</a></li>
+                            <li><a class="black-text" href="#contact">Cancelar mi despacho</a></li>
+                        </ul>
+                        <a class="tooltipped btn light-blue darken-4 white-text" href="#mapa" data-position="bottom" data-tooltip="¡Encuéntranos!">
+                            <i class="material-icons">location_on</i></a>
+                        <a class="tooltipped btn-floating pulse blue darken-1" href="tel:56978129471" data-position="bottom" data-tooltip="Call Center: +56 9 7812 9471">
+                            <i class="material-icons">local_phone</i></a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Consultar -->
+        <section class="container section" id="consultar">
+          <h4>Consulta el estado del despacho.</h4>
+          <div>
+			<form id="formrut">
+				<input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
+				<button class="btn" type="submit">Validar RUT y Enviar</button>
+			</form>
+          </div>
+          <div>
+			  <table id="tablarut" class="striped hide">
+				<thead>
+				  <tr>
+					  <th>N° Orden de Despacho</th>
+					  <th>Cod Producto</th>
+					  <th>Dirección</th>
+					  <th>teléfono</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <tr>
+					<td>1</td>
+					<td>abc-1</td>
+					<td>Alameda #123</td>
+					<td>+56 9 8765 4321</td>
+				  </tr>
+				  <tr>
+					<td>2</td>
+					<td>abc-1</td>
+					<td>Alameda #123</td>
+					<td>+56 9 8765 4321</td>
+				  </tr>
+				  <tr>
+					<td>3</td>
+					<td>abc-1</td>
+					<td>Alameda #123</td>
+					<td>+56 9 8765 4321</td>
+				  </tr>
+				</tbody>
+			  </table>
+          </div>
+        </Section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--Google Map-->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
+    <script src="./asset/js/script.js"></script>
+    <script src="./asset/js/validar-rut.js"></script>
+</body>
+</html>
