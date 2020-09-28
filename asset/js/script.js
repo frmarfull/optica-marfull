@@ -70,11 +70,11 @@ function toggleAll(){
 	  desc.style.display = "block"; //Mostrar descuentos.
 	  
 	  //ocultar otros elementos recurrentes.
-	  ocultarPorId("catalogo")
-	  ocultarPorId("consultar")
-	  ocultarPorId("solicitar")
-	  //ocultarPorId("modificar")
-	  //ocultarPorId("cancelar")
+	  ocultarPorId("catalogo");
+	  ocultarPorId("consultar");
+	  ocultarPorId("solicitar");
+	  ocultarPorId("modificar");
+	  //ocultarPorId("cancelar");
 	  
 	  hidden = false;
 	} 
@@ -83,11 +83,11 @@ function toggleAll(){
 	  desc.style.display = "none"; //Ocultar descuentos.
 	  
 	  //ocultar otros elementos recurrentes.
-	  ocultarPorId("catalogo")
-	  ocultarPorId("consultar")
-	  ocultarPorId("solicitar")
-	  //ocultarPorId("modificar")
-	  //ocultarPorId("cancelar")
+	  ocultarPorId("catalogo");
+	  ocultarPorId("consultar");
+	  ocultarPorId("solicitar");
+	  ocultarPorId("modificar");
+	  //ocultarPorId("cancelar");
 	  
 	  hidden = true;
 	}		
@@ -139,7 +139,7 @@ function limpiarTabla(id){
     }
 }
 
-function buscarCoincidencias(id){
+function buscarAndEliminarCoincidencia(id){
 	let encontrado = false;
     let rutBuscado = document.querySelector(id).value;
     for (i=0;i<arrayDatosDespacho.length;i++){
@@ -147,7 +147,35 @@ function buscarCoincidencias(id){
             insertarFila(arrayDatosDespacho[i])
 			encontrado = true;
 			return arrayDatosDespacho[i];
-            //alert("ENCONTRADO!")
+        }
+    }
+    if (!encontrado){
+        alert("No se encontraron coincidencias.")
+    }
+}
+
+function buscarCoincidencia(id){
+	let encontrado = false;
+    let rutBuscado = document.querySelector(id).value;
+    for (i=0;i<arrayDatosDespacho.length;i++){
+        if (arrayDatosDespacho[i]["rut"]==rutBuscado){
+            insertarFila(arrayDatosDespacho[i])
+			encontrado = true;
+			return arrayDatosDespacho[i];
+        }
+    }
+    if (!encontrado){
+        alert("No se encontraron coincidencias.")
+    }
+}
+
+function buscarCoincidencias(id){
+	let encontrado = false;
+    let rutBuscado = document.querySelector(id).value;
+    for (i=0;i<arrayDatosDespacho.length;i++){
+        if (arrayDatosDespacho[i]["rut"]==rutBuscado){
+            insertarFila(arrayDatosDespacho[i])
+			encontrado = true;
         }
     }
     if (!encontrado){

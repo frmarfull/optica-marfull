@@ -33,8 +33,8 @@
                         <ul id='dropdown1' class="dropdown-content">
                             <li><a class="black-text" onclick='ver("consultar")'>Consultar despacho</a></li>
                             <li><a class="black-text" onclick='ver("solicitar")'>Solicitar despacho</a></li>
-                            <li><a class="black-text" onclick="ocultar()">Modificar datos de despacho</a></li>
-                            <li><a class="black-text" onclick="ocultar()">Cancelar mi despacho</a></li>
+                            <li><a class="black-text" onclick='ver("modificar")'>Modificar datos de despacho</a></li>
+                            <li><a class="black-text" onclick='ver("cancelar")'>Cancelar mi despacho</a></li>
                         </ul>
                         <a class="tooltipped btn light-blue darken-4 white-text" href="https://www.google.com/maps/d/edit?mid=1tIuu_DE0SZ5D9vtdBQfyac6hM3p4S407&usp=sharing" data-position="bottom" data-tooltip="¡Encuéntranos!">
                             <i class="material-icons">location_on</i></a>
@@ -98,9 +98,14 @@
 				  <tr>
 					  <th>N°</th>
 					  <th>cod</th>
-					  <th>Nombres</th>
-					  <th>teléfono</th>
-					  <th>dirección</th>
+					  <th>Producto</th>
+					  <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Región</th>
+            <th>calle</th>
+            <th>Comuna</th>
+            <th>N°/depa</th>
+            <th>Precio</th>
 				  </tr>
         </thead>
         <!-- Datos de la tabla -->
@@ -160,9 +165,70 @@
             </div>
             <button class="btn" type="submit">Enviar</button>
         </form>
-
         </Section>
 
+        <!-- Modificar -->
+        <section class="container section" id="modificar">
+          <h4>Modificar despacho</h4>
+          <div>
+			<form id="formModificarRut">
+				<input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
+				<button class="btn" type="submit">Validar Run y enviar</button>
+			</form>
+          </div>
+          <div>
+			  <table id="tablaModificarRut" class="striped hide">
+          <thead>
+          <!-- Nombre de cada columna -->
+				  <tr>
+					  <th>N°</th>
+					  <th>cod</th>
+					  <th>Producto</th>
+					  <th>nombre</th>
+                      <th>apellido</th>
+                      <th>region</th>
+                      <th>calle</th>
+                      <th>comuna</th>
+                      <th>N°/Depa</th>
+                      <th>precio</th>
+				  </tr>
+        </thead>
+        <!-- Datos de la tabla -->
+				<tbody id="datosTablaRut">
+				</tbody>
+			  </table>
+          </div>
+          </div>
+          <form id="formDatosModificar" class="hide">
+            <h6><b>Modificación los campos.</b></h6>
+            <div >
+                <h6>Ingrese su nombre</h6>
+                <input type="text" name="nombre" id="nombre" required>
+            </div>
+            <div class="autocomplete">
+                <h6>Ingrese su apellido</h6>
+                <input class="inputBorder" type="text" name="apellido" id="apellido" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su Region</span>
+                <input class="inputBorder" type="text" name="region" id="region" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su comuna</span>
+                <input class="inputBorder" type="text" name="comuna" id="comuna" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su calle</span>
+                <input class="inputBorder" type="text"  name="calle" id="calle" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su departamento</span>
+                <input class="inputBorder" type="text" name="departamento" id="departamento">
+            </div>
+            <button class="btn" type="submit">Modificar</button>
+        </form>
+        </Section>
+        
         <!-- Fotos / Grilla -->
         <section class="container section" id="descuentos">
             <div class="row wood">
@@ -203,5 +269,6 @@
     <script src="./asset/js/validar-rut.js"></script>
     <script src="./asset/js/solicitar.js"></script>
     <script src="./asset/js/consultar.js"></script>
+    <script src="./asset/js/modificar.js"></script>
 </body>
 </html>

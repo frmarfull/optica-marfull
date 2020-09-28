@@ -1,10 +1,20 @@
-var tablaModificarRut = document.getElementById("tablaModificarRut");
-var formDatosModificarUI = document.getElementById("formDatosModificar");
-let datoTemp;
+var tablaCancelarRut = document.getElementById("tablaCancelarRut");
+var formDatosCancelarUI = document.getElementById("datosTablaCancelaRut");
+let datoTemp2;
+
+// Eventos
+formCancelarRut.addEventListener('submit', (e)=>{
+
+    e.preventDefault();
+    tablaCancelarRut.className = "striped";
+    formDatosCancelarUI.className = "";
+    limpiarTabla("tablaCancelarRut");
+    encontrarAndRellenar();
+})
 
 //funciones.
 function encontrarAndRellenar(){
-    datoTemp = buscarCoincidencia('#formModificarRut #rut');
+    datoTemp2 = buscarCoincidencia('#formMCancelarRut #rut');
 
     nombreMod = tablaModificarRut.rows[1].cells[3].innerText
     formDatosModificarUI[0].value = nombreMod;
@@ -25,19 +35,10 @@ function encontrarAndRellenar(){
     formDatosModificarUI[5].value = depaMod;
 }
 
-// Eventos
-formModificarRut.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    tablaModificarRut.className = "striped";
-    formDatosModificarUI.className = "";
-    limpiarTabla("tablaModificarRut");
-    encontrarAndRellenar();
-})
-
 formDatosModificar.addEventListener('submit', (e)=>{
     e.preventDefault();
 
-    rutUI2 = document.getElementById('formModificarRut')[0].value
+    rutUI2 = document.getElementById('formCancelarRut')[0].value
     nombreUI2 = formDatosModificarUI[0].value;
     apellidoUI2 = formDatosModificarUI[1].value;
     regionUI2 = formDatosModificarUI[2].value;
@@ -50,16 +51,14 @@ formDatosModificar.addEventListener('submit', (e)=>{
     precioUI0 = tablaModificarRut.rows[1].cells[9].innerText;
 
     //borrar el registro del array.
-    value = datoTemp;
+    value = datoTemp2;
     arrayDatosDespacho = arrayDatosDespacho.filter(item => item !== value);
-
-    crearItem(rutUI2,nombreUI2,apellidoUI2,regionUI2,comunaUI2,calleUI2,departamentoUI2, codUI0, descUI0, precioUI0);
     guardarDatos();
 
-    alert("Datos modificados!");
+    alert("Despacho Cancelado!");
     formModificarRut.reset();
     formDatosModificar.reset();
-    limpiarTabla("tablaModificarRut");
+    limpiarTabla("tablaCancelarRut");
     tablaModificarRut.className = "hide";
     formDatosModificar.className = "hide";
 })

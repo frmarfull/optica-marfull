@@ -6,3 +6,4 @@ formrut.addEventListener('submit', (e)=>{
     limpiarTabla("tablarut");
     buscarCoincidencias('#formrut #rut');
 })
+
