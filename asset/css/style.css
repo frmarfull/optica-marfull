@@ -38,10 +38,6 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
-.logo {
-    width: 62px;
-}
-
 header {
     background: url(../img/eyeglasses-wall.jpg);
     background-size: cover;
@@ -56,5 +52,11 @@ header {
         left: unset;
         -webkit-transform: translateX(0%);
         transform: translateX(0%);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #btnDespacho {
+        content: "local_shipping";
     }
 }

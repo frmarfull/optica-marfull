@@ -62,42 +62,43 @@
         <!-- Modificar -->
         <section class="container section" id="modificar">
           <h4>Modificar despacho</h4>
-          <h6>Elementos a despachar: </h6>
-            <table id="tablacarrito" class="striped">
-            <thead>
-              <tr>
-                <th>N°</th>
-                <th>Cod Producto</th>
-                <th>Nombre producto</th>
-                <th>Cantidad</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-              <td>1</td>
-              <td>abc-1</td>
-              <td>Marcos Enzzo color café</td>
-              <td>1</td>
-              </tr>
-            </tbody>
-            </table>
           <div>
-      <h6><b>Para proceder con el despacho, ingrese su run.</b></h6>
-			<form id="formRutConsultar">
+			<form id="formModificarRut">
 				<input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
-				<button class="btn" type="submit">Validar RUT y Enviar</button>
+				<button class="btn" type="submit">Validar Run y enviar</button>
 			</form>
           </div>
           <div>
+			  <table id="tablaModificarRut" class="striped hide">
+          <thead>
+          <!-- Nombre de cada columna -->
+				  <tr>
+					  <th>N°</th>
+					  <th>cod</th>
+					  <th>Producto</th>
+					  <th>nombre</th>
+                      <th>apellido</th>
+                      <th>region</th>
+                      <th>calle</th>
+                      <th>comuna</th>
+                      <th>N°/Depa</th>
+                      <th>precio</th>
+				  </tr>
+        </thead>
+        <!-- Datos de la tabla -->
+				<tbody id="datosTablaRut">
+				</tbody>
+			  </table>
           </div>
-
-          <form id="formDatosConsultar" class="hide">
+          </div>
+          <form id="formDatosModificar" class="hide">
+            <h6><b>Modificación los campos.</b></h6>
             <div >
-                <span>Ingrese su nombre</span>
+                <h6>Ingrese su nombre</h6>
                 <input type="text" name="nombre" id="nombre" required>
             </div>
             <div class="autocomplete">
-                <span>Ingrese su apellido</span>
+                <h6>Ingrese su apellido</h6>
                 <input class="inputBorder" type="text" name="apellido" id="apellido" required>
             </div>
             <div class="autocomplete">
@@ -112,19 +113,20 @@
                 <span>Ingrese su calle</span>
                 <input class="inputBorder" type="text"  name="calle" id="calle" required>
             </div>
-            
             <div class="autocomplete">
                 <span>Ingrese su departamento</span>
                 <input class="inputBorder" type="text" name="departamento" id="departamento">
             </div>
-            <button class="btn" type="submit">Enviar</button>
+            <button class="btn" type="submit">Modificar</button>
         </form>
-
         </Section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./asset/js/solicitar.js"></script>
     <script src="./asset/js/validar-rut.js"></script>
+    <script src="./asset/js/modificar.js"></script>
+    <script src="./asset/js/script.js"></script>
+    <script src="./asset/js/consultar.js"></script>
 </body>
 </html>
