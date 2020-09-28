@@ -1,13 +1,45 @@
-var tablaModificarRut = document.getElementById("tablaModificarRut");
-var formDatosModificarUI = document.getElementById("formDatosModificar");
-var datoTemp;
+// Eventos
+formModificarRut.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    // Rut ingresado por el usuario.
+    campoRut = document.getElementById("rutInputModificar").value;
 
+    // Se buscan coincidencias del rut.
+    var encontrado = encuentraRutModificar(campoRut);
+    if (encontrado != false){
+        //Si se encuentra el rut, se procede a mostrar los campos disponibles.
+        var formDatosModificarUI = document.getElementById("formDatosModificar");
+        //Sacamos la clase ocultar, para hacer visible el formulario.
+        formDatosModificarUI.className = "";
+        
+        // Rellenar los campos.
+        
+    }
+    else {
+        alert("No se enuentran coincidencias");
+    }
+})
+
+// Buscar el rut que se desea modificar, devuelve True/False.
+function encuentraRutModificar(campoRut){
+	let encontrado = false;
+    let rutBuscado = campoRut;
+    for (i=0;i<arrayDatosDespacho.length;i++){
+        if (arrayDatosDespacho[i]["rut"]==rutBuscado){
+            encontrado = arrayDatosDespacho[i];
+        }
+    }
+    return encontrado;
+}
+
+/*
+var datoTemp;
 //funciones.
 function encontrarAndRellenar(){
     var tablaModificarRut = document.getElementById("tablaModificarRut");
     var formDatosModificarUI = document.getElementById("formDatosModificar");
     
-    datoTemp = buscarCoincidencias('#formModificarRut #rut');
+    datoTemp = buscarCoincidencia('#formModificarRut #rut');
 
     nombreMod = tablaModificarRut.rows[1].cells[3].innerText
     formDatosModificarUI[0].value = nombreMod;
@@ -66,4 +98,4 @@ formDatosModificar.addEventListener('submit', (e)=>{
     tablaModificarRut.className = "hide";
     formDatosModificar.className = "hide";
 })
-
+*/
