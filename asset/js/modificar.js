@@ -1,10 +1,13 @@
 var tablaModificarRut = document.getElementById("tablaModificarRut");
 var formDatosModificarUI = document.getElementById("formDatosModificar");
-let datoTemp;
+var datoTemp;
 
 //funciones.
 function encontrarAndRellenar(){
-    datoTemp = buscarCoincidencia('#formModificarRut #rut');
+    var tablaModificarRut = document.getElementById("tablaModificarRut");
+    var formDatosModificarUI = document.getElementById("formDatosModificar");
+    
+    datoTemp = buscarCoincidencias('#formModificarRut #rut');
 
     nombreMod = tablaModificarRut.rows[1].cells[3].innerText
     formDatosModificarUI[0].value = nombreMod;
