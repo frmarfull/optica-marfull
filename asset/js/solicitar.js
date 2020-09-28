@@ -1,8 +1,3 @@
-formRutConsultar.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    document.getElementById("formDatosConsultar").className = "";
-})
-
 //variables globales
 
 const formularioUI = document.querySelector('#formulario');
@@ -28,7 +23,6 @@ function crearItem(rut,nombre,apellido,region,comuna,calle,departamento){
         comuna: comuna,
         calle: calle,
         departamento:departamento
-    
     }
     arrayDatosDespacho.push(item);
     return item;
@@ -47,9 +41,17 @@ function modificarDespacho(){
 }
 
 //Eventos
-formDatosConsultar.addEventListener('submit', (e)=>{
+formRutSolicitar.addEventListener('submit', (e)=>{
     e.preventDefault();
-    let rutUI= document.querySelector('#rut').value.toLowerCase();
+    var tablacarrito = document.getElementById("tablacarrito");
+    if (tablacarrito.rows.length > 1){
+        document.getElementById("formDatosSolicitar").className = "";
+    }
+})
+
+formDatosSolicitar.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let rutUI= document.querySelector('#formRutSolicitar #rut').value;
     let nombreUI= document.querySelector('#nombre').value;
     let apellidoUI= document.querySelector('#apellido').value;
     let regionUI= document.querySelector('#region').value;
@@ -59,7 +61,11 @@ formDatosConsultar.addEventListener('submit', (e)=>{
 
     crearItem(rutUI,nombreUI,apellidoUI,regionUI,comunaUI,calleUI,departamentoUI);
     guardarDatos();
-    formDatosConsultar.reset();
+    formDatosSolicitar.reset();
+    limpiarTabla("tablacarrito");
+    alert("¡Solicitud agregada!");
+    document.getElementById("formDatosSolicitar").className = "hide";
+    formRutSolicitar.reset();
 })
 
 /*
@@ -69,14 +75,10 @@ formularioBorrar.addEventListener('submit', (e)=>{
     index = arrayDatosDespacho.findIndex(x => x.rut ===rutBorrar)
     if(index !=-1){
         borrarDespacho()
-
     }
     else{
         alert("Rut no encontrado")
     }
-    
-    
-    
     formularioBorrar.reset();
 })
 

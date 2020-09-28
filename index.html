@@ -53,14 +53,15 @@
 				<div class="col s12 m3">
 				  <div class="card hoverable">
 					<div class="card-image">
-					  <img id="abc1" class="responsive-img materialboxed"src="./asset/img/marco001a_512x512.png">
-					  <span class="card-title">Card Title</span>
+					  <img class="responsive-img materialboxed"src="./asset/img/marco001a_512x512.png">
 					</div>
-					<div class="card-content">
-					  <p>Marco "Enzzo" Cod: ABC1.</p>
+					<div id="info001" class="card-content">
+            <p class="desc">Marco "Enzzo"</p>
+            <p class="cod">Cod: ABC1.</p>
+            <p class="precio">$50.000</p>
 					</div>
 					<div class="card-action">
-					  <a class="modal-trigger" href="#modal1">Comprar</a>				  
+					  <a class="modal-trigger" id="btnComprar001" href="#modal1">Comprar</a>				  
 					  <!-- Modal Structure -->
 					  <div id="modal1" class="modal">
 						<div class="modal-content">
@@ -110,36 +111,57 @@
           </div>
         </Section>
         
-        <!-- Solicitar -->
+        <!-- SOLICITAR -->
         <section class="container section" id="solicitar">
-          <h4>Solicitar despacho.</h4>
+          <h4>Solicitar despacho</h4>
+          <h6>Elementos a despachar: </h6>
+            <table id="tablacarrito" class="striped">
+            <thead>
+              <tr>
+                <th>N°</th>
+                <th>Cod Producto</th>
+                <th>Nombre producto</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
           <div>
-			  <table id="tablarut" class="striped">
-				<thead>
-				  <tr>
-					  <th>N°</th>
-					  <th>cod</th>
-					  <th>Nombres</th>
-					  <th>teléfono</th>
-				  </tr>
-				</thead>
+      <h6><b>Para proceder con el despacho, ingrese su run.</b></h6>
+      <form id="formRutSolicitar">
+        <input type="text" id="rut" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
+        <button class="btn" type="submit">Validar RUT y Enviar</button>
+      </form>
+          </div>
+          <form id="formDatosSolicitar" class="hide">
+            <div >
+                <span>Ingrese su nombre</span>
+                <input type="text" name="nombre" id="nombre" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su apellido</span>
+                <input class="inputBorder" type="text" name="apellido" id="apellido" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su Region</span>
+                <input class="inputBorder" type="text" name="region" id="region" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su comuna</span>
+                <input class="inputBorder" type="text" name="comuna" id="comuna" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su calle</span>
+                <input class="inputBorder" type="text"  name="calle" id="calle" required>
+            </div>
+            <div class="autocomplete">
+                <span>Ingrese su departamento</span>
+                <input class="inputBorder" type="text" name="departamento" id="departamento">
+            </div>
+            <button class="btn" type="submit">Enviar</button>
+        </form>
 
-				<tbody>
-				  <tr>
-					<td>1</td>
-					<td>abc-1</td>
-					<td>Alameda #123</td>
-					<td>+56 9 8765 4321</td>
-				  </tr>
-				</tbody>
-			  </table>
-          </div>
-          <div>
-			<form id="formrun">
-				<input type="text" id="run" name="run" required oninput="checkRut(this)" placeholder="Ingrese RUT">
-				<button class="btn" type="submit">Validar RUT y Enviar</button>
-			</form>
-          </div>
         </Section>
 
         <!-- Fotos / Grilla -->
@@ -170,39 +192,16 @@
                 <img src="./asset/img/lentes-opticos.jpg" alt="" class="responsive-img materialboxed">
             </div>
             <div class="col s12 l6 offset-l1" onclick="verCatalogo()">
-                <h2 class="indigo-text text-darken-4">Lentes ópticos</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-            </div>
-            </div>
-            <div class="row hoverable">
-            <div class="col s12 l4 offset-l1 push-l7">
-                <img src="https://image.freepik.com/foto-gratis/grupo-jovenes-tres-elegantes-amigos-posando-calle-hombre-moda-dos-chicas-lindas-vestidas-ropa-casual-verano-modelos-sonrientes-divirtiendose-gafas-sol-mujeres-alegres-chico-susnet_158538-16347.jpg" alt="" class="responsive-img materialboxed">
-            </div>
-            <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                <h2 class="indigo-text text-darken-4">Lentes de sol</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
-            </div>
-            </div>
-            <div class="row hoverable">
-            <div class="col s12 l4">
-                <img src="./asset/img/entrega.jpg" alt="" class="responsive-img materialboxed">
-            </div>
-            <div class="col s12 l6 offset-l1">
-                <h2 class="indigo-text text-darken-4">Reparaciones</h2>
+                <h2 class="indigo-text text-darken-4">Catálogo con descuentos</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
             </div>
             </div>
         </section>
-        <Section class="container section center grey" id="clientes">
-            <article>
-                <img src="https://image.freepik.com/free-photo/mother-with-little-son-glasses-store_1157-23034.jpg" alt="" srcset="">
-                <img src="https://image.freepik.com/free-photo/young-man-wearing-casual-shirt-eyeglasses-using-phone_255757-2281.jpg" alt="">
-            </article>
-        </Section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./asset/js/script.js"></script>
     <script src="./asset/js/validar-rut.js"></script>
+    <script src="./asset/js/solicitar.js"></script>
 </body>
 </html>
