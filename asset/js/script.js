@@ -17,7 +17,48 @@
   });
 
 let hidden = false; // Variable para identificar si los elementos están escondidos.
+let arrayDatosDespacho = leerDatos();
 
+//funciones
+function crearItem(rut,nombre,apellido,region,
+    comuna,calle,departamento, cod, desc, precio){
+    let item={
+        rut: rut,
+        nombre: nombre,
+        apellido: apellido,
+        region: region,
+        comuna: comuna,
+        calle: calle,
+        departamento:departamento,
+        cod:cod,
+        desc:desc,
+        precio:precio
+    }
+    arrayDatosDespacho.push(item);
+    return item;
+}
+
+function leerDatos() {
+    if (JSON.parse(localStorage.getItem("Despacho"))!=null){
+        return JSON.parse(localStorage.getItem("Despacho"));
+    }
+    else {
+        return [];
+    }
+}
+
+function guardarDatos(){
+    localStorage.setItem('Despacho',JSON.stringify(arrayDatosDespacho));
+}
+function borrarDespacho(){
+    arrayDatosDespacho.splice(index,1);
+    guardarDatos();
+}
+function modificarDespacho(){
+    arrayDatosDespacho[index]={rutModificar,nombreModificar,apellidoModificar,regionModificar,
+                               comunaModificar,calleModificar,departamentoModificar}
+    guardarDatos();
+}
 
 //Función para ocultar o mostrar secciones definidas.
 function toggleAll(){
@@ -90,36 +131,6 @@ function ver(elemento){
 	}
 }
 
-// Obtener 
-function getDespachoArray() {
-  return JSON.parse(localStorage.getItem("Despacho"));
-}
-/*
-function createTablaRut(listado) {
-	for (i = 0; i < listado.length; i++) {
-		var tablarut = document.getElementById("tablarut");
-		var fila = document.createElement("tr");
-		var celda1 = document.createElement("td");
-		var celda2 = document.createElement("td");
-		var celda3 = document.createElement("td");
-		celda1.innerHTML = i;
-		celda2.innerHTML = listado[i].nombre+" "+listado[i].apellido;
-		celda3.innerHTML = listado[i].calle+", "+listado[i].comuna;
-		fila.appendChild(celda1);
-		fila.appendChild(celda2);
-		fila.appendChild(celda3);
-		tablarut.appendChild(fila);
-		}
-}
-*/
-formrut.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    document.getElementById("tablarut").className = "striped";
-    var tablarut = document.getElementById("tablarut");
-    listaDespacho = getDespachoArray();
-    //createTablaRut(listaDespacho);    
-})
-
 function limpiarTabla(id){
     var tablaConDatos = document.getElementById(id)
     if (tablaConDatos.rows.length > 1){
@@ -128,6 +139,8 @@ function limpiarTabla(id){
     }
 }
 
+// Eventos
+// Al presionar comprar, en un botón.
 document.getElementById("btnComprar001").addEventListener("click", function() {
 	// Buscamos la tabla de la sección "Solicitar despacho".
 	var tablacarrito = document.getElementById("tablacarrito");
@@ -154,13 +167,3 @@ document.getElementById("btnComprar001").addEventListener("click", function() {
 	fila.appendChild(celda4);
 	tablacarrito.appendChild(fila); // Elemento añadido.
   });
-
-  function rellenarTabla(datos){
-	// Buscamos la tabla de la sección "Solicitar despacho".
-	var tablacarrito = document.getElementById("tablacarrito");
-	var fila = document.createElement("tr");
-	var celda1 = document.createElement("td");
-	var celda2 = document.createElement("td");
-	var celda3 = document.createElement("td");
-	var celda4 = document.createElement("td");
-  }

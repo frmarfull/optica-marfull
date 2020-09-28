@@ -9,37 +9,6 @@ const calleUI= document.querySelector('#calle');
 const comunaUI= document.querySelector('#comuna');
 const departamentoUI= document.querySelector('#departamento');
 
-
-let arrayDatosDespacho = [];
-
-
-//funciones
-function crearItem(rut,nombre,apellido,region,comuna,calle,departamento){
-    let item={
-        rut: rut,
-        nombre: nombre,
-        apellido: apellido,
-        region: region,
-        comuna: comuna,
-        calle: calle,
-        departamento:departamento
-    }
-    arrayDatosDespacho.push(item);
-    return item;
-}
-function guardarDatos(){
-    localStorage.setItem('Despacho',JSON.stringify(arrayDatosDespacho));
-}
-function borrarDespacho(){
-    arrayDatosDespacho.splice(index,1);
-    guardarDatos();
-}
-function modificarDespacho(){
-    arrayDatosDespacho[index]={rutModificar,nombreModificar,apellidoModificar,regionModificar,
-                               comunaModificar,calleModificar,departamentoModificar}
-    guardarDatos();
-}
-
 //Eventos
 formRutSolicitar.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -58,8 +27,14 @@ formDatosSolicitar.addEventListener('submit', (e)=>{
     let calleUI= document.querySelector('#calle').value;
     let comunaUI= document.querySelector('#comuna').value;
     let departamentoUI= document.querySelector('#departamento').value;
+    
+    let prod = document.getElementById("tablacarrito");
+    let codUI = prod.rows[1].cells[1].innerText;
+	let descUI = prod.rows[1].cells[2].innerText;
+	let precioUI = prod.rows[1].cells[3].innerText;
 
-    crearItem(rutUI,nombreUI,apellidoUI,regionUI,comunaUI,calleUI,departamentoUI);
+
+    crearItem(rutUI,nombreUI,apellidoUI,regionUI,comunaUI,calleUI,departamentoUI, codUI, descUI, precioUI);
     guardarDatos();
     formDatosSolicitar.reset();
     limpiarTabla("tablacarrito");
