@@ -167,7 +167,7 @@
         </form>
         </Section>
 
-        <!-- Modificar -->
+        <!-- MODIFICAR -->
         <section class="container section" id="modificar">
           <h4>Modificar despacho</h4>
           <div>
@@ -228,6 +228,16 @@
             <button class="btn" type="submit">Modificar</button>
         </form>
         </Section>
+
+        <!-- CANCELAR -->
+        <section class="container section" id="cancelar">
+          <h4>Cancelar despacho</h4>
+          <div>
+			<form id="formCancelarRut">
+				<input type="text" id="rutInputCancelar" name="rut" required oninput="checkRut(this)" placeholder="Ingrese RUT">
+				<button class="btn" type="submit">Validar Run y enviar</button>
+			</form>
+        </Section>
         
         <!-- Fotos / Grilla -->
         <section class="container section" id="descuentos">
@@ -270,5 +280,6 @@
     <script src="./asset/js/solicitar.js"></script>
     <script src="./asset/js/consultar.js"></script>
     <script src="./asset/js/modificar.js"></script>
+    <script src="./asset/js/cancelar.js"></script>
 </body>
 </html>

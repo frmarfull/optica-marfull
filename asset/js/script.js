@@ -74,7 +74,7 @@ function toggleAll(){
 	  ocultarPorId("consultar");
 	  ocultarPorId("solicitar");
 	  ocultarPorId("modificar");
-	  //ocultarPorId("cancelar");
+	  ocultarPorId("cancelar");
 	  
 	  hidden = false;
 	} 
@@ -87,7 +87,7 @@ function toggleAll(){
 	  ocultarPorId("consultar");
 	  ocultarPorId("solicitar");
 	  ocultarPorId("modificar");
-	  //ocultarPorId("cancelar");
+	  ocultarPorId("cancelar");
 	  
 	  hidden = true;
 	}		
