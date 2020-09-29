@@ -56,7 +56,7 @@ header {
 }
 
 @media only screen and (max-width: 600px) {
-    #btnDespacho {
-        content: "local_shipping";
+    .brand-logo {
+        display: none;
     }
 }

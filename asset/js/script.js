@@ -232,7 +232,12 @@ function insertarFila(datos){
 // Al presionar comprar, en un botón.
 document.getElementById("btnComprar001").addEventListener("click", function() {
 	// Buscamos la tabla de la sección "Solicitar despacho".
-	var tablacarrito = document.getElementById("datosTablaCarrito");
+    var tablacarrito = document.getElementById("datosTablaCarrito");
+    if (tablacarrito.rows.length > 0) {
+        alert("Sólo un elemento por cliente.")
+    }
+    else
+    {
 	var fila = document.createElement("tr");
 	var celda1 = document.createElement("td");
 	var celda2 = document.createElement("td");
@@ -254,5 +259,7 @@ document.getElementById("btnComprar001").addEventListener("click", function() {
 	fila.appendChild(celda2);
 	fila.appendChild(celda3);
 	fila.appendChild(celda4);
-	tablacarrito.appendChild(fila); // Elemento añadido.
+    tablacarrito.appendChild(fila); // Elemento añadido.
+    }
+
   });
