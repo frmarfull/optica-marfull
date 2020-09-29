@@ -12,7 +12,8 @@
     margin: 0 auto;
 }
 
-#catalogo, #consultar, #solicitar, #modificar, #cancelar{
+/* Se ocultan las acciones del CRUD y otros elementos que no se mostrarán al inicio. */
+#consultar, #solicitar, #modificar, #cancelar, #catalogo{
 	display: none;
 }
 
@@ -45,7 +46,6 @@ header {
     min-height: 700px;
     /*color: white;*/
 }
-
 
 @media only screen and (max-width: 992px) {
     nav .brand-logo {

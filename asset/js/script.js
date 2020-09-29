@@ -1,4 +1,5 @@
-  document.addEventListener('DOMContentLoaded', function() {
+// inicialización de elementos del Materialze.
+document.addEventListener('DOMContentLoaded', function() {
     //El carrusel de Materialize.
     var elems = document.querySelectorAll('.carousel');
     var instances = M.Carousel.init(elems);
@@ -14,7 +15,7 @@
     //Modal
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
-  });
+});
 
 let hidden = false; // Variable para identificar si los elementos están escondidos.
 let arrayDatosDespacho = leerDatos();
@@ -227,11 +228,7 @@ function insertarFila(datos){
     tablaconsultar.appendChild(fila);
 }
 
-// Eventos
-
-// Al presionar comprar, en un botón.
-document.getElementById("btnComprar001").addEventListener("click", function() {
-	// Buscamos la tabla de la sección "Solicitar despacho".
+function addToCarrito(codigo){
     var tablacarrito = document.getElementById("datosTablaCarrito");
     if (tablacarrito.rows.length > 0) {
         alert("Sólo un elemento por cliente.")
@@ -245,7 +242,7 @@ document.getElementById("btnComprar001").addEventListener("click", function() {
 	var celda4 = document.createElement("td");
 
 	// Buscamos los datos del producto deseado.
-	var prod = document.getElementById("info001");
+	var prod = document.getElementById(codigo);
 	var desc = prod.getElementsByClassName("desc")[0].innerText; // Descripción.
 	var cod = prod.getElementsByClassName("cod")[0].innerText; // Código
 	var precio = prod.getElementsByClassName("precio")[0].innerText; // Precio.
@@ -261,5 +258,44 @@ document.getElementById("btnComprar001").addEventListener("click", function() {
 	fila.appendChild(celda4);
     tablacarrito.appendChild(fila); // Elemento añadido.
     }
+}
 
+// Eventos
+// Al presionar comprar, en un botón.
+document.getElementById("btnComprar001").addEventListener("click", function() {
+	// Buscamos la tabla de la sección "Solicitar despacho".
+    addToCarrito("info001");
   });
+document.getElementById("btnComprar004").addEventListener("click", function() {
+    addToCarrito("info004");
+  });
+document.getElementById("btnComprar005").addEventListener("click", function() {
+    addToCarrito("info005");
+  });
+document.getElementById("btnComprar006").addEventListener("click", function() {
+    addToCarrito("info006");
+  });  
+document.getElementById("btnComprar007").addEventListener("click", function() {
+    addToCarrito("info007");
+  });
+document.getElementById("btnComprar008").addEventListener("click", function() {
+    addToCarrito("info008");
+  });
+
+
+
+//Esta función cambia de escena al usuario, del home al catálogo y viceversa.
+function saltoDeDimension(){
+    var vitrineando = document.getElementById("catalogo").style.display;
+    var btnFlotante = document.getElementById("btnFlotante");
+
+    if (vitrineando == "none"|| vitrineando == ""){
+        ocultar();
+        verCatalogo();
+        btnFlotante.innerText = "home"
+    }
+    else {
+        mostrar();
+        btnFlotante.innerText = "visibility"
+    }
+}
