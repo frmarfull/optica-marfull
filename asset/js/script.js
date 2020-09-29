@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
     //Mensaje que ayuda.
     var elems = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(elems);
-    //Dropdown buttons.
+    //Dropdown buttons, en español es un cajón de botones.
     var elems = document.querySelectorAll('.dropdown-trigger');
     var instances = M.Dropdown.init(elems, {hover:true});
-    //Efecto Materialboxed (La imagen se va agrandando).
+    //Efecto Materialboxed (La imagen se agranda, en fondo se obscurece).
     var elems = document.querySelectorAll('.materialboxed');
     var instances = M.Materialbox.init(elems);
-    //Modal
+    //Modal, un elemento similar al alert();
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems);
 });
