@@ -65,7 +65,8 @@ function modificarDespacho(){
 function toggleAll(){
 	var header = document.getElementById("headerprincipal");
 	var desc = document.getElementById("descuentos");
-	
+    
+    // Si todo el home está escondido, entonces se despliega el home.
 	if (hidden){
 	  header.style.minHeight = "700px"; //Mostrar la imagen principal.
 	  desc.style.display = "block"; //Mostrar descuentos.
@@ -80,6 +81,7 @@ function toggleAll(){
 	  hidden = false;
 	} 
 	else {
+        //Si todo está desplegado, se esconden los elementos del home.
 	  header.style.minHeight = "0"; //Ocultar la imagen principal.
 	  desc.style.display = "none"; //Ocultar descuentos.
 	  
@@ -102,12 +104,14 @@ function ocultar(){
 
 //Mostrar sólo las seccioines del home.
 function mostrar(){
+    window.location.hash = "/home";
 	hidden = true;
 	toggleAll();
 }
 
 // Hacer Visible únicamente un elemento por su ID, ocultando los demás elementos.
 function verPorId(id){
+    window.location.hash = `/${id}`;
 	var elemento = document.getElementById(id);
 	if (elemento==null) {return "no existe!";}
 	ocultar() //Ocultar los elementos distractorios.
@@ -282,7 +286,28 @@ document.getElementById("btnComprar008").addEventListener("click", function() {
     addToCarrito("info008");
   });
 
+// Monitorear si cambia la ruta.
+$(window).on('hashchange', function() {
+    if (window.location.hash == "#/home") {
+        mostrar();
+    }
+    else {
+        conducto(window.location.hash)
+    }
+});
 
+// Conducir al usuario a la sección del fragment en la url.
+function conducto(){
+    fragment = window.location.hash[0] + window.location.hash[1];
+    url = window.location.hash;
+
+    // Sólo si es un fragment, y NO una querry u otra parafernalia.
+    if (fragment == "#/" && url.length > 2){
+        // entonces vamos a la vista del fragment deseado,
+        // sacando las decoraciones del fragment ("#/")
+        ver(url.slice(2));
+    }
+}
 
 //Esta función cambia de escena al usuario, del home al catálogo y viceversa.
 function saltoDeDimension(){
@@ -293,9 +318,11 @@ function saltoDeDimension(){
         ocultar();
         verCatalogo();
         btnFlotante.innerText = "home"
+        window.location.hash = "/catalogo"
     }
     else {
         mostrar();
         btnFlotante.innerText = "visibility"
+        window.location.hash = "/home"
     }
 }
